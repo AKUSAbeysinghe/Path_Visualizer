@@ -21,4 +21,22 @@ interface PathfindingContextInterface {
     const [grid, setGrid] = useState<GridType>(
       createGrid(START_TILE_CONFIGURATION, END_TILE_CONFIGURATION)
     );
-  }
+    const[isGraphVisualized, isGraphVisualized] = useState<boolean>(false);
+
+    return (
+      <PathfindingContext.Provider
+        value={{
+          algorithm,
+          setAlgorithm,
+          maze,
+          setMaze,
+          grid,
+          setGrid,
+          isGraphVisualized,
+          setIsGraphVisualized,
+        }}
+      >
+        {children}
+      </PathfindingContext.Provider>
+    );
+  };
